@@ -1,14 +1,13 @@
 #include <iostream>
 using namespace std;
-long num; 
-int lol;
-int esp10=1;
-int top;
+long long num; 
+long long lol;
+long long top;
 bool ris;
-bool PALI5(long);
-int ultima(long);
-int cifra(long,int);
-bool PALI(long);
+bool PALI5(long long);
+long long ultima(long long);
+long long cifra(long long,long long);
+bool PALI(long long);
 
 int main (){
 
@@ -27,7 +26,7 @@ int main (){
     return 0;
 }
 
-bool PALI5(long x){           //Verifica palindromia di un numero a 5 cifre;
+bool PALI5(long long x){           //Verifica palindromia di un numero a 5 cifre;
 
     if(cifra(x,1)==cifra(x,5) && cifra(x,2)==cifra(x,4)) ris=true;
     else ris=false;
@@ -36,14 +35,14 @@ bool PALI5(long x){           //Verifica palindromia di un numero a 5 cifre;
     
 }
 
-bool PALI(long x){            //verifica palindromia di un qualsiasi numero int;
-    int i=ultima(x);
-    int f=1;
+bool PALI(long long x){            //verifica palindromia di un qualsiasi numero int;
+    long long i=ultima(x);
+    long long f=1;
     while(i>=ultima(x)/2){
         if(cifra(x,i)==cifra(x,f)) ris=true;
         else{
             ris=false;
-            i=1-ultima(x)/2;
+            break;
         } 
         --i;
         ++f;
@@ -51,24 +50,24 @@ bool PALI(long x){            //verifica palindromia di un qualsiasi numero int;
     return ris;
 }
 
-int cifra(long a,int b) {     // identificatore di una determinata cifra;
+long long cifra(long long a,long long b) {     // identificatore di una determinata cifra;
 
-    int esp1=1;                  
-    for(int i=1; i<=b; ++i){
+    long long esp1=1;                  
+    for(long long i=1; i<=b; ++i){
         esp1*=10;
     }   
-    int resto;
+    long long resto;
     resto=a%=esp1;           
-    int c=b-1,esp2=1;            
-    for(int g=1; g<=c; ++g) {
+    long long c=b-1,esp2=1;            
+    for(long long g=1; g<=c; ++g) {
         esp2*=10;
     }
     lol=resto/esp2;
     return lol;
 }
 
-int ultima(long x){           // Restituisce il numero di cifre del numero;
-    for(int i=1; x!=0; ++i){
+long long ultima(long long x){           // Restituisce il numero di cifre del numero;
+    for(long long i=1; x!=0; ++i){
         x/=10;
         top=i;
     }
