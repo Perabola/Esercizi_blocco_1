@@ -31,6 +31,7 @@ int SUS(int a,int b) {
         lol*=a;
         ++i;
     }
+    ++lol;
     ris=lol;
     return ris;
 }
