@@ -10,7 +10,7 @@ int main (){
 }
 
 int SUP(int a,int b){
-    if(b==0)
+    if(b!=0)
         ris=0;
     else{
         a*=b;
